@@ -5,9 +5,9 @@ This repository is the platform-level companion to Geoffrey Abbott's
 threat-detection system as decisions become knowable through implementation,
 measurement, and customer conversation.
 
-## Current checkpoint
+## Latest published checkpoint
 
-This is the `article-01` checkpoint: **Before the First Service**. It contains
+The latest published checkpoint is `article-01`: **Before the First Service**. It contains
 architecture, decisions, risks, open questions, and the initial agent contract.
 It contains no runtime service implementation and is not a production reference
 architecture or universal recommendation.
@@ -24,3 +24,12 @@ The root owns platform-level intent and cross-service coherence. Future service
 repositories will own their implementation, tests, and build instructions. The
 architecture will grow when evidence creates a responsibility; we are not
 completing the final system in advance.
+
+## Continuing article work
+
+The working branch may advance beyond the published checkpoint. Start with the
+[series roadmap](articles/ROADMAP.md) for the current installment and next action,
+then follow the installment workflow in [AGENTS.md](AGENTS.md).
+The roadmap and article workspaces hold mutable editorial intent and evidence
+references; they do not establish platform architecture. Published transcripts
+remain separate from working drafts, and tagged checkpoints preserve history.
