@@ -21,7 +21,7 @@ sources, conversations, and measured work, with uncertainty retained.
 | Installment | Lifecycle state | Central question | Published transcript / checkpoint | Workspace |
 | --- | --- | --- | --- | --- |
 | 1 — Before the First Service | Published | What must be preserved and recorded before the first service can responsibly begin? | [Article 1](article1.md) / `article-01` | No retrospective workspace |
-| 2 — Choose what crosses the first edge (working title) | Shaping | What versioned wire profile should cross the first edge, and what justifies choosing it? | None assigned | [WORK.md](work/article-02/WORK.md) |
+| 2 — Choose what crosses the first edge (working title) | Drafting | What versioned wire profile should cross the first edge, and what justifies choosing it? | None assigned | [WORK.md](work/article-02/WORK.md) |
 
 Current installment: **2**. Later installments are not scheduled or committed.
 Lifecycle requirements live in [AGENTS.md](../AGENTS.md); state is recorded only
@@ -49,12 +49,18 @@ normalization, identity reconciliation, and detection remain excluded.
 Use Article 1's preservation and identity distinctions as prerequisites without
 retelling its argument. Explain any change to its next-installment promise;
 do not let the first fixture imply a universal platform contract or customer
-prevalence. No Article 2 technical decision has been made.
+prevalence. The Article 2 workspace records a selected source-shaped basis; root
+platform transport and event-model decisions remain unaccepted.
 
 ## Next concrete action
 
-Establish comparison criteria and inventory available customer-source evidence,
-explicitly recording any absence and its effect on selection. Then research
-candidate profiles against those criteria before selecting a wire contract.
-After selection, resolve the simulator scope question against the article's
-evidence promise before simulator design or implementation begins.
+FSTO/1 implementation and execution complete. The `tds-firewall-traffic-simulator`
+repository implements deterministic 180-byte canonical record generation,
+golden-byte verification, UDP send/receive experimental harness, independent
+attempt/receipt metadata, and both required scenarios (clean_success,
+receiver_unavailable). All 15 tests pass. Evidence artifacts captured. Findings
+reconciled to ARCHITECTURE.md, OPEN-QUESTIONS.md, and RISKS.md.
+
+Next action: Draft Article 2 manuscript showing wire-profile selection reasoning,
+FSTO/1 contract specification, experimental findings, and preserved limitations.
+Do NOT publish, create tags, or push to remote until explicitly authorized.

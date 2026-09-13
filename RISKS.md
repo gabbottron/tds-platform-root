@@ -8,10 +8,15 @@ the stated evidence or event occurs.
 - **Harmful outcome:** the platform presents incomplete evidence as complete.
 - **Condition:** source or transport drops input before the collection boundary.
 - **Concern:** observability and evidence integrity.
-- **Current architectural treatment:** The first experiment must record source
-  attempts and collector receipts independently; no implementation exists yet.
-- **Escalate before:** treating an attempt/receipt gap as understood without a
-  controlled experiment.
+- **Current architectural treatment:** FSTO/1 implements independent attempt
+  (simulator metadata) and receipt (receiver metadata) recording. The
+  receiver_unavailable scenario validated: successful UDP send does NOT
+  guarantee receipt. This is a bounded local loopback finding (127.0.0.1), NOT
+  a characterization of real network loss rates, patterns, or production
+  firewall behavior. Production loss detection, alerting, and remediation
+  remain unimplemented.
+- **Escalate before:** treating production loss patterns as understood based on
+  synthetic local experiments alone.
 
 ## RISK-0002 — Source address is mistaken for device identity
 
