@@ -21,7 +21,7 @@ sources, conversations, and measured work, with uncertainty retained.
 | Installment | Lifecycle state | Central question | Published transcript / checkpoint | Workspace |
 | --- | --- | --- | --- | --- |
 | 1 — Before the First Service | Published | What must be preserved and recorded before the first service can responsibly begin? | [Article 1](article1.md) / `article-01` | No retrospective workspace |
-| 2 — Choose what crosses the first edge (working title) | Editorial Review | What versioned wire profile should cross the first edge, and what justifies choosing it? | Unpublished candidate: [Article 2](article2.md); no checkpoint | [WORK.md](work/article-02/WORK.md) |
+| 2 — Choose what crosses the first edge (working title) | Editorial Review | What versioned wire profile should cross the first edge, and what justifies choosing it? | Unpublished candidate: [Article 2](article2.md); no checkpoint | Removed before merge; [durable evidence](evidence/article-02.md) |
 
 Current installment: **2**. Later installments are not scheduled or committed.
 Lifecycle requirements live in [AGENTS.md](../AGENTS.md); state is recorded only
@@ -40,17 +40,18 @@ wire contract. Separate transport, framing, payload family, and source profile.
 The intended article must show the exact wire representation and distinguish
 documentation from teaching simplifications.
 
-Simulator design or implementation must follow wire-profile selection. Whether
-Article 2 then designs, implements, and/or executes the simulator remains an
-[explicit shaping question](work/article-02/WORK.md#simulator-scope-question).
-Collector implementation, durable-handoff implementation, broker selection,
-normalization, identity reconciliation, and detection remain excluded.
+Simulator design or implementation must follow wire-profile selection. Article 2
+executed a bounded simulator experiment; its durable evidence record preserves
+what that experiment establishes and does not establish. Collector implementation,
+durable-handoff implementation, broker selection, normalization, identity
+reconciliation, and detection remain excluded.
 
 Use Article 1's preservation and identity distinctions as prerequisites without
 retelling its argument. Explain any change to its next-installment promise;
 do not let the first fixture imply a universal platform contract or customer
-prevalence. The Article 2 workspace records a selected source-shaped basis; root
-platform transport and event-model decisions remain unaccepted.
+prevalence. Article 2's durable evidence record describes its selected
+source-shaped basis; root platform transport and event-model decisions remain
+unaccepted.
 
 ## Next concrete action
 
@@ -62,12 +63,10 @@ receiver_unavailable). All 15 tests pass. Evidence artifacts captured. Findings
 reconciled to ARCHITECTURE.md, OPEN-QUESTIONS.md, and RISKS.md.
 
 Article 2's sole publication candidate is [articles/article2.md](article2.md),
-an unpublished, not-yet-approved 2,832-word manuscript. It is byte-identical to
-the temporary editorial source `work/article-02/jane-draft-02.md`. All files
-under `work/article-02/` are research, review, or temporary editorial material;
-none is publication authority. The obsolete 4,339-word `draft.md` is retained
-without being merged into the candidate. The review packet is current in
-`work/article-02/review.md`.
+an unpublished, not-yet-approved 2,832-word manuscript. Its durable provenance
+and experiment limitations are recorded in [articles/evidence/article-02.md](evidence/article-02.md).
+The Article 2 workspace was temporary material and is removed before merge; it
+is not publication authority and is not carried forward to Article 3.
 
 Next action: Geoffrey and Jane editorial review of `articles/article2.md`. Do
 NOT publish, create tags, add a publication date or URL, or advance to

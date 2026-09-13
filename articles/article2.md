@@ -3,7 +3,7 @@ title: "Architecting With Evidence, Part 2: What Crosses the First Edge?"
 record_type: unpublished-publication-candidate
 publication_status: editorial-review-not-approved
 publication_authority: articles/article2.md
-working_source: articles/work/article-02/jane-draft-02.md
+evidence_record: articles/evidence/article-02.md
 ---
 
 What Crosses the First Edge?
