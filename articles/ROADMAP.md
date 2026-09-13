@@ -21,7 +21,7 @@ sources, conversations, and measured work, with uncertainty retained.
 | Installment | Lifecycle state | Central question | Published transcript / checkpoint | Workspace |
 | --- | --- | --- | --- | --- |
 | 1 — Before the First Service | Published | What must be preserved and recorded before the first service can responsibly begin? | [Article 1](article1.md) / `article-01` | No retrospective workspace |
-| 2 — Choose what crosses the first edge (working title) | Drafting | What versioned wire profile should cross the first edge, and what justifies choosing it? | None assigned | [WORK.md](work/article-02/WORK.md) |
+| 2 — Choose what crosses the first edge (working title) | Editorial Review | What versioned wire profile should cross the first edge, and what justifies choosing it? | None assigned | [WORK.md](work/article-02/WORK.md) |
 
 Current installment: **2**. Later installments are not scheduled or committed.
 Lifecycle requirements live in [AGENTS.md](../AGENTS.md); state is recorded only
@@ -61,6 +61,13 @@ attempt/receipt metadata, and both required scenarios (clean_success,
 receiver_unavailable). All 15 tests pass. Evidence artifacts captured. Findings
 reconciled to ARCHITECTURE.md, OPEN-QUESTIONS.md, and RISKS.md.
 
-Next action: Draft Article 2 manuscript showing wire-profile selection reasoning,
-FSTO/1 contract specification, experimental findings, and preserved limitations.
-Do NOT publish, create tags, or push to remote until explicitly authorized.
+Article 2 manuscript complete (4,339 words). Draft presents seven-layer contract
+separation, FortiOS/UDP selection rationale, FSTO/1 specification with provenance
+table, experimental results from validated evidence (a62ac98/f828949), and
+preserved limitations. All material claims traced to evidence. Review packet
+current in review.md.
+
+Next action: Geoffrey and Jane editorial review. Five key decisions flagged:
+word count (exceeds target), transport explanations depth, candidate profiles
+scope, field explanations verbosity, "Next" section specificity. Do NOT publish,
+create tags, or advance to Publication Ready until editorial approval.

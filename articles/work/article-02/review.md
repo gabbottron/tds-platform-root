@@ -347,3 +347,204 @@ gate requirements.
 
 All Article 2 claims now cite validated evidence from clean implementation
 revision a62ac98 via evidence commit f828949.
+
+---
+
+## Drafting review packet — 2026-09-13
+
+### Manuscript complete
+
+**Draft:** [draft.md](draft.md)
+**Word count:** 4,339 words
+**Status:** Initial draft for editorial review (not approved for publication)
+
+### Central claim
+
+"The firewall sends an event" conceals at least seven independent technical contracts. To make an honest architectural choice for the first source-to-collector edge, we must separate transport, framing, envelope, payload encoding, and source profile—understanding how each affects what the collector observes and what failures are detectable.
+
+We selected FortiOS Traffic logs over UDP as the first teaching fixture (FSTO/1) for pedagogical reasons: direct firewall-to-collector boundary, approachable datagram boundary, useful attempt-versus-receipt uncertainty, and clear TCP-traffic-over-UDP-export distinction. This is not a claim about customer prevalence, vendor superiority, or platform-wide transport selection.
+
+FSTO/1 is a precise synthetic teaching contract (180 bytes) that separates vendor-documented components from teaching simplifications. The experiment validated deterministic generation, golden-byte verification, byte preservation on local loopback, and the observable gap between source attempt and collector receipt.
+
+### Evidence and implementation revisions
+
+**Implementation:**
+- Repository: tds-firewall-traffic-simulator
+- Clean implementation commit: `a62ac9897e0086ff256f996249ed56154717773c` (a62ac98)
+- Implementation components: generator, simulator, receiver, tests, experiment runner
+- Test results: 15/15 pytest passed
+
+**Validated evidence:**
+- Evidence file: `evidence/experiment-20260913-145108.json`
+- Evidence commit: `f828949` in tds-firewall-traffic-simulator
+- Git provenance: a62ac98, git_dirty=false, git_status=null
+- Scenarios: clean_success (success), receiver_unavailable (success)
+- Contract: 180 bytes, SHA-256 `62bf0871bd1148b2c1f1afbe3a500740d5a936af5d1dec3b724ab1c85486a653`
+
+**Superseded evidence:**
+- Original dirty-tree artifact renamed to `-SUPERSEDED.json`
+- Documented in `evidence/EVIDENCE.md` with supersession rationale
+
+**Platform reconciliation:**
+- Commit: `401bbbf` on article-2 branch in tds-platform-root
+- Files updated: ARCHITECTURE.md, OPEN-QUESTIONS.md, RISKS.md, ROADMAP.md, WORK.md, review.md
+- Lifecycle: Drafting
+
+### Actual experimental results
+
+**clean_success:**
+- One local UDP send (127.0.0.1:15140)
+- One receipt observed by listening receiver
+- Received payload exactly matches canonical FSTO/1 (SHA-256 verified)
+- 180 bytes preserved, datagram boundary intact
+- Three-way time distinction observable (source eventtime, attempt metadata, receipt metadata)
+
+**receiver_unavailable:**
+- One local UDP send to port with no listener (127.0.0.1:25140)
+- `sendto()` returned 180 bytes (local success)
+- Zero receipts observed at different receiver port (35140)
+- Demonstrates: send success ≠ guaranteed receipt
+
+**Limitations explicitly preserved:**
+- Local loopback only (127.0.0.1), not real network
+- Synthetic teaching record, not real FortiOS output
+- Experimental receiver harness, not production collector
+- No claim about production loss rates, vendor behavior, or network patterns
+
+### Architecture changes
+
+**Platform documents updated:**
+1. ARCHITECTURE.md: Added "Teaching fixtures" section for FSTO/1
+2. OPEN-QUESTIONS.md: OQ-0002 (transport) and OQ-0003 (payload) updated with bounded findings
+3. RISKS.md: RISK-0001 updated with validated attempt/receipt gap
+4. ROADMAP.md: Article 2 lifecycle Researching → Drafting
+
+**No platform architecture selection beyond Article 2 experiment:**
+- UDP selected for this teaching experiment only, not platform-wide
+- Python bounded to experimental tooling, not production collector
+- FortiOS-shaped profile is first teaching fixture, not universal platform contract
+
+### Inferences and teaching simplifications
+
+**Inferences made:**
+- Seven-layer contract separation (traffic observed, exported observation, transport, framing, envelope, encoding, profile)
+- FortiOS/UDP selected for pedagogical value (fewest simultaneous concepts, clearest attempt/receipt gap)
+- Documentation gap normal; invented details would be dishonest
+- Three-way time distinction matters (source eventtime, attempt time, receipt time)
+
+**Teaching simplifications explicitly documented:**
+1. No syslog envelope (FSTO/1 specifies key-value body only)
+2. No terminator (no newline/CR/NUL)
+3. One record per datagram (not claiming multi-record packing knowledge)
+4. Fixed field order (FSTO/1 order, not FortiOS claim)
+5. Synthetic values (TEST-NET addresses, teaching device ID)
+
+**Vendor-documented vs. teaching:**
+- Provenance table in manuscript distinguishes FortiOS Log Reference sources from teaching simplifications
+- Fortinet eventtime documentation conflict noted (10-digit generic vs 19-digit Traffic-specific)
+- action=close semantics qualified (session-end status under Traffic/forward, not policy decision)
+
+### Source-support gaps
+
+**No evidence for:**
+- Real FortiOS wire output (envelope, packing, ordering across versions/configs)
+- Customer inventory or prevalence
+- Production network loss rates or patterns
+- FortiGate buffering/retry behavior under load
+- Where loss occurred in receiver_unavailable (kernel, routing, ICMP handling)
+
+**Evidence available from:**
+- Fortinet FortiOS Log Reference (field names, log types, semantics)
+- RFC 5737 (TEST-NET documentation addresses)
+- IANA Protocol Numbers (proto=6 = TCP, standard reference)
+- FSTO/1 implementation and validated experiment (clean a62ac98, evidence f828949)
+
+### Deviations from the brief
+
+**Word count:** 4,339 words (target was 1,800-2,600). Manuscript is longer than target guidance. Sections that could be condensed:
+- Transport/framing explanation (lines 55-69)
+- Candidate profiles comparison (lines 71-123)
+- FSTO/1 field explanations (lines 197-219)
+
+**Narrative approach:** Followed briefed structure closely. No material deviations.
+
+**Evidence discipline:** All material claims traced to WORK.md evidence. No invented customer facts, vendor behavior, or measurements.
+
+### Continuity and overlap concerns
+
+**Continuity with Article 1:**
+- Brief reference to platform-root governance without retelling the argument (as instructed)
+- Carries forward synthetic source → raw collection → durable handoff flow
+- Does not repeat Article 1's preservation rationale
+
+**Potential overlap:**
+- Some UDP/TCP/TLS transport concepts introduced may be basic for experienced engineers. Brief mentions this: "assume general technical literacy, but do not assume familiarity with firewalls, network security..."
+- Manuscript errs toward accessibility; could be more concise for purely senior-architect audience
+
+**Series promise alignment:**
+- Addresses Part 2 published promise: "examine firewall products and export mechanisms... select one versioned teaching contract... show exact wire representation"
+- Fulfills comparison of profiles, exact bytes, documented vs simplified, controlled simplification
+
+### Unresolved editorial choices for Geoffrey and Jane
+
+1. **Word count:** Draft is 4,339 words, exceeding 1,800-2,600 target guidance. Should manuscript be condensed, or is the length justified given the seven-layer contract separation and FSTO/1 provenance detail? Specific sections identified for potential condensation above.
+
+2. **Transport explanations depth:** UDP/TCP/TLS/NetFlow/cloud delivery descriptions (lines 55-69, 95-123) aim for accessibility without assuming prerequisite knowledge. Is this the right balance, or should the manuscript assume more networking background and abbreviate?
+
+3. **Five candidate profiles:** Manuscript covers FortiOS, PAN-OS, ASA, Check Point, AWS to show materially different boundary types. Is five profiles the right scope, or should it be condensed to FortiOS + one TLS contrast + one managed-delivery contrast?
+
+4. **FSTO/1 field-by-field explanations:** Lines 197-219 explain each of 11 fields. This supports the "inspectable contract" claim but adds length. Should field explanations be condensed to just the most pedagogically interesting (eventtime, action, proto, sentbyte)?
+
+5. **"Next" section specificity:** Final section (lines 366-370) avoids pre-committing to "build a collector" or "choose a broker" as instructed. Does this appropriately leave the next question open, or should it signal provisional next directions more concretely?
+
+### Suggested visual opportunities
+
+1. **Seven-layer contract diagram:** Visualize traffic observed → exported → transport → framing → envelope → encoding → profile as distinct layers with example values from FSTO/1
+
+2. **Three-way time timeline:** Show source eventtime (2023-01-01 nanoseconds in payload), simulator attempt time (local clock), receiver receipt time (local clock) on a timeline to make the distinction concrete
+
+3. **FSTO/1 anatomy:** Annotated canonical record showing which components are vendor-documented (green) vs teaching simplifications (amber), mapped to provenance table
+
+4. **Attempt vs receipt gap:** Simple diagram showing UDP send success at simulator (bytes_sent=180, no error) and no corresponding receipt at collector port, illustrating the observable gap
+
+5. **Candidate profiles comparison table:** Boundary type, transport, framing, teaching value for all five profiles in a scannable comparison
+
+### Exact repository state
+
+**tds-firewall-traffic-simulator:**
+- Branch: main
+- HEAD: `f828949` (evidence commit, clean, pushed)
+- Parent: `a62ac98` (implementation commit, clean, pushed)
+- Working tree: clean
+- Remote: https://github.com/gabbottron/tds-firewall-traffic-simulator (up to date)
+
+**tds-platform-root:**
+- Branch: article-2
+- HEAD: `401bbbf` (reconciliation commit, pushed)
+- Working tree: modified (draft.md, review.md uncommitted)
+- Remote: https://github.com/gabbottron/tds-platform-root article-2 branch (401bbbf pushed)
+
+**Files changed (uncommitted):**
+- articles/work/article-02/draft.md (manuscript complete)
+- articles/work/article-02/review.md (this review packet added)
+
+### Lifecycle advancement
+
+**Current state:** Drafting
+**Proposed advancement:** Editorial Review (when Geoffrey/Jane approve draft and review packet)
+**Requirements to advance (from AGENTS.md):** Initial manuscript complete, material claims traced to evidence, review packet current
+**Status:** All requirements satisfied. Manuscript awaits editorial review.
+
+**Not advancing to:** Publication Ready (requires Geoffrey/Jane editorial approval and any requested revisions)
+
+### Validation performed 2026-09-13
+
+- All 10 drafting gates verified passing (see gate verification above)
+- Manuscript claims traced to WORK.md evidence records
+- No invented customer facts, vendor behavior, or measurements
+- Teaching simplifications explicitly documented
+- Evidence provenance clean (a62ac98, f828949)
+- Platform reconciliation complete (401bbbf)
+- Limitations preserved in all sections
+
+**Ready for conversational editorial review with Geoffrey and Jane.**
