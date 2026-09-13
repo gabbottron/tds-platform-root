@@ -9,14 +9,15 @@ record_type: published-article-transcript
 
 This file is a formatting-normalized transcript of the published article. The
 LinkedIn publication is the public source; the tagged repository is the
-technical checkpoint derived from it.
+technical checkpoint derived from it. LinkedIn interface metadata was omitted,
+one duplicated sentence was removed, and one missing space was corrected.
 
 # Before the First Service: Giving Coding Agents an Architecture They Can Evolve
 
 How to read this series
-This series is for experienced engineers, technical leaders, and people using coding agents to work on systems whose requirements cannot be understood all at once.
+This series is for experienced engineers, technical leaders, and people using coding agents to work on systems whose requirements cannot be understood all at once. The series will follow the development of a threat detection system based on observation of firewall events. As the series progresses we will naturally uncover risks and assumptions in our evolving design and deal with them as best we can with the information available.
 
-It is not an attempt to present the optimal threat-detection architecture, and it is not a claim that every team should make the same decisions we make. Real designs depend on customers, deployment environments, existing infrastructure, regulatory obligations, operating capacity, cost, and evidence we do not have yet.
+This series is not an attempt to present the optimal threat-detection architecture, and it is not a claim that every team should make the same decisions we make. Real designs depend on customers, deployment environments, existing infrastructure, regulatory obligations, operating capacity, cost, and evidence we do not have yet.
 
 The firewall platform is a field study in how those decisions become knowable.
 
@@ -47,7 +48,7 @@ A firewall sees a version of the network that most applications never do.
 
 It sits at a boundary and observes connection attempts crossing it. Depending on the device and its configuration, it may record where a connection came from, where it was going, which protocol and ports it used, how much data moved, which policy applied, and whether the traffic was allowed, denied, dropped, or reset. It may also report signatures, administrative changes, authentication activity, and the health of the firewall itself.
 
-Those records are useful, but they are not yet threat detections. They are observations made by one device at one point in time.A denied connection to a closed port may be harmless background noise. A source address appearing to test hundreds of ports across several protected systems is more interesting, although the address alone may not identify a single actor or host. An allowed connection may be completely ordinary until it is combined with other activity from the same system, user, or time window.
+Those records are useful, but they are not yet threat detections. They are observations made by one device at one point in time. A denied connection to a closed port may be harmless background noise. A source address appearing to test hundreds of ports across several protected systems is more interesting, although the address alone may not identify a single actor or host. An allowed connection may be completely ordinary until it is combined with other activity from the same system, user, or time window.
 
 The value comes from preserving individual observations and then examining how they relate to one another.
 
@@ -113,7 +114,9 @@ firewall-platform-root/
     └── 0001-establish-the-platform-root.md
 Each file has one job.
 
-README.md explains the customer problem, establishes the repository’s authority, describes the current stage, and points a human or agent toward the next authoritative document. It is an entry point, not a compressed copy of the architecture.
+You can find the completed files for this article [here](https://github.com/gabbottron/tds-platform-root/tree/article-01).
+
+README.md explains the customer problem, establishes the repository's authority, describes the current stage, and points a human or agent toward the next authoritative document. It is an entry point, not a compressed copy of the architecture.
 
 AGENTS.md defines the initial operating contract. Agent work begins by loading the relevant root context, even when the eventual changes occur elsewhere. The agent distinguishes evidence from inference, investigates what the repositories can establish, and surfaces missing facts instead of silently inventing them. When a missing fact could change the correctness or scope of the work, it stops or preserves the issue as an explicit question.
 
@@ -235,6 +238,8 @@ The abstract flow is now clear enough to make its first concrete choice.
 In Part 2, we will examine the firewall products and export mechanisms plausible customers are likely to use. We will separate transport, framing, payload family, and source profile; select one versioned teaching contract; and show the exact wire representation our simulator will produce.
 
 Only then will we design the simulator that exercises it.
+
+**Reference repository for this article:** [tds-platform-root](https://github.com/gabbottron/tds-platform-root/tree/article-01)
 
 About this series: Architecting With Evidence follows the design of an evolving threat-detection platform to explore how humans and coding agents can make disciplined architectural decisions under uncertainty.
 

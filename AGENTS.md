@@ -22,7 +22,7 @@ show the owner the material changes.
 ## Article work and resumption
 
 For installment work, read [the roadmap](articles/ROADMAP.md), the active
-workspace, and the previous published article. Read the previous tagged root
+workspace when one exists, and the previous published article. Read the previous tagged root
 checkpoint, including its architecture, decisions, questions, and risks, using
 `git show <checkpoint>:<path>`; inspect its tag and changes since it with
 `git diff <checkpoint> --`. Inspect untracked files and relevant service working
@@ -38,6 +38,13 @@ The roadmap owns installment lifecycle state and next concrete action. Do not
 duplicate that state in workspace files. Before handing back work, update the
 roadmap and relevant working notes so a fresh session can resume without chat
 history. Record blockers and the evidence or decision needed to continue.
+
+`articles/work/` is temporary, branch-local scratch space and must not merge to
+`main`. Create `articles/work/article-NN/` only for an active installment. Before
+cleanup, reconcile durable findings into platform documents, place any durable
+article evidence outside `work/`, and identify the publication candidate outside
+`work/`. A future installment begins with a new empty workspace; do not copy a
+prior installment's working files forward.
 
 ## Editorial material and evidence
 
@@ -74,13 +81,14 @@ unverified. Keep service internals and bulky artifacts in their owning repositor
 retain concise findings and exact references here.
 
 Reconcile findings into affected platform documents before drafting claims from
-them. Record changes or an explicit no-change rationale in WORK.md. Unresolved
+them. Record changes or an explicit no-change rationale in the active WORK.md. Unresolved
 findings remain qualified; they cannot silently become accepted architecture.
 
 ## Per-article workspace
 
-Repeat the three-file layout used by [Article 2](articles/work/article-02/WORK.md)
-for each active installment; reset content rather than copying prior conclusions.
+Use a three-file `articles/work/article-NN/` layout for each active installment;
+reset content rather than copying prior conclusions. The directory is temporary
+and removed before its branch merges to `main`.
 
 - **WORK.md:** brief (question, promise, scope, exclusions, evidence needs),
   inherited context, evidence/source trace, implementation/experiment findings,
@@ -112,7 +120,7 @@ Advance only when the current stage's substance is recorded:
 
 A stage may be not applicable only with a recorded reason; this never implies
 experimental validation. Return to earlier work when evidence or scope changes,
-recording why in WORK.md. Lifecycle progress does not grant architectural acceptance.
+recording why in the active WORK.md. Lifecycle progress does not grant architectural acceptance.
 
 ## Conversational review and publication
 

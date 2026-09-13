@@ -33,3 +33,8 @@ then follow the installment workflow in [AGENTS.md](AGENTS.md).
 The roadmap and article workspaces hold mutable editorial intent and evidence
 references; they do not establish platform architecture. Published transcripts
 remain separate from working drafts, and tagged checkpoints preserve history.
+
+`articles/work/` is branch-local scratch space. It is intentionally absent from
+`main` between active installments: create a fresh `article-NN` workspace only
+on the branch doing that installment, then reconcile durable evidence, review
+outcomes, and the publication candidate outside `work/` before merge.

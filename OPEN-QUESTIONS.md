@@ -26,7 +26,11 @@ that lets work continue, evidence needed, and current status.
 - **Provisional boundary:** transport-neutral raw collection boundary.
 - **Evidence needed:** source inventory, operating requirements, and controlled
   failure experiments.
-- **Status:** open.
+- **Status:** partial finding. FSTO/1 uses UDP with one-record-per-datagram
+  (180-byte boundary preserved). Validated: successful send does NOT guarantee
+  receipt (receiver_unavailable scenario). This is a bounded teaching finding,
+  not a general transport selection. Real FortiOS syslog behavior, TCP
+  considerations, and production network loss patterns remain unknown.
 
 ## OQ-0003 — Payload family and source profile
 
@@ -38,7 +42,12 @@ that lets work continue, evidence needed, and current status.
 - **Provisional boundary:** preserve source-shaped bytes before interpretation.
 - **Evidence needed:** authoritative format documentation, likely customer
   source inventory, and safely reproducible fixtures.
-- **Status:** open.
+- **Status:** implemented. FSTO/1 (FortiOS-Shaped Traffic Observation v1)
+  provides a deterministic 180-byte teaching contract shaped after FortiOS
+  7.4.8 Traffic/forward session-end logs (LOG_ID_TRAFFIC_END_FORWARD). This is
+  a synthetic teaching fixture, NOT real FortiOS output. It supports repeatable
+  bounded experiments with golden-byte verification. Real FortiOS variability,
+  field ordering, escaping, and multi-line behavior remain unknown.
 
 ## OQ-0004 — Device identity
 
