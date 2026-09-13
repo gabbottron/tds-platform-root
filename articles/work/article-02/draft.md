@@ -1,5 +1,8 @@
 # Part 2: Choose what crosses the first edge
 
+> Temporary editorial working material. Not Article 2 publication authority;
+> retained without merger into `articles/article2.md`.
+
 **Series:** Architecting With Evidence
 **Status:** Initial draft (not published)
 **Evidence:** FSTO/1 implementation at tds-firewall-traffic-simulator `a62ac98`, validated evidence `experiment-20260913-145108.json` (commit `f828949`)

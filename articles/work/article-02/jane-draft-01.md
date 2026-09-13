@@ -1,3 +1,5 @@
+> Temporary editorial working material. Not Article 2 publication authority.
+
 What Crosses the First Edge?
 
 In Part 1, we gave the architecture somewhere to remember what we know, what we have decided, and what remains uncertain.

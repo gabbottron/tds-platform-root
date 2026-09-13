@@ -1,4 +1,12 @@
-# Article 2 — contract checkpoint handoff
+# Article 2 — research and review working material
+
+This file is a mutable review record, not publication authority. The sole Article
+2 publication candidate is [articles/article2.md](../../article2.md). Its
+temporary editorial source is [jane-draft-02.md](jane-draft-02.md); the files
+`WORK.md`, `draft.md`, and `jane-draft-01.md` are research or temporary working
+material only. The historical handoff below is retained as review history.
+
+## Historical contract checkpoint handoff
 
 Ready for **implementation authorization** with the `FSTO/1` teaching contract
 finalized, simulator scope resolved, and implementation packet complete. It is
@@ -354,9 +362,10 @@ revision a62ac98 via evidence commit f828949.
 
 ### Manuscript complete
 
-**Draft:** [draft.md](draft.md)
-**Word count:** 4,339 words
-**Status:** Initial draft for editorial review (not approved for publication)
+**Publication candidate:** [articles/article2.md](../../article2.md)
+**Temporary editorial source:** [jane-draft-02.md](jane-draft-02.md), byte-identical
+**Word count:** 2,832 words
+**Status:** Unpublished publication candidate; editorial review, not approved for publication
 
 ### Central claim
 
@@ -364,7 +373,7 @@ revision a62ac98 via evidence commit f828949.
 
 We selected FortiOS Traffic logs over UDP as the first teaching fixture (FSTO/1) for pedagogical reasons: direct firewall-to-collector boundary, approachable datagram boundary, useful attempt-versus-receipt uncertainty, and clear TCP-traffic-over-UDP-export distinction. This is not a claim about customer prevalence, vendor superiority, or platform-wide transport selection.
 
-FSTO/1 is a precise synthetic teaching contract (180 bytes) that separates vendor-documented components from teaching simplifications. The experiment validated deterministic generation, golden-byte verification, byte preservation on local loopback, and the observable gap between source attempt and collector receipt.
+FSTO/1 is a precise synthetic teaching contract (180 bytes) that separates vendor-documented components from teaching simplifications. The experiment validated deterministic generation, golden-byte verification, and byte preservation on local loopback. A successful UDP send is attempt evidence, not receipt evidence; the unavailable-receiver run did not observe its destination port.
 
 ### Evidence and implementation revisions
 
@@ -400,10 +409,10 @@ FSTO/1 is a precise synthetic teaching contract (180 bytes) that separates vendo
 - Three-way time distinction observable (source eventtime, attempt metadata, receipt metadata)
 
 **receiver_unavailable:**
-- One local UDP send to port with no listener (127.0.0.1:25140)
-- `sendto()` returned 180 bytes (local success)
-- Zero receipts observed at different receiver port (35140)
-- Demonstrates: send success ≠ guaranteed receipt
+- One local UDP send to 127.0.0.1:25140; `sendto()` returned 180 bytes
+- A receiver on different port 35140 observed no cross-delivery
+- Does not establish whether an application received the datagram at 25140
+- Supports only the bounded distinction between local send success and application-receipt evidence
 
 **Limitations explicitly preserved:**
 - Local loopback only (127.0.0.1), not real network
@@ -442,7 +451,7 @@ FSTO/1 is a precise synthetic teaching contract (180 bytes) that separates vendo
 **Vendor-documented vs. teaching:**
 - Provenance table in manuscript distinguishes FortiOS Log Reference sources from teaching simplifications
 - Fortinet eventtime documentation conflict noted (10-digit generic vs 19-digit Traffic-specific)
-- action=close semantics qualified (session-end status under Traffic/forward, not policy decision)
+- action=close treated as an allowed-session end status under Traffic/forward; no TCP shutdown sequence inferred
 
 ### Source-support gaps
 
@@ -461,10 +470,8 @@ FSTO/1 is a precise synthetic teaching contract (180 bytes) that separates vendo
 
 ### Deviations from the brief
 
-**Word count:** 4,339 words (target was 1,800-2,600). Manuscript is longer than target guidance. Sections that could be condensed:
-- Transport/framing explanation (lines 55-69)
-- Candidate profiles comparison (lines 71-123)
-- FSTO/1 field explanations (lines 197-219)
+**Word count:** 2,832 words. The current candidate is the designated Jane draft,
+not the obsolete 4,339-word `draft.md`.
 
 **Narrative approach:** Followed briefed structure closely. No material deviations.
 
@@ -487,7 +494,7 @@ FSTO/1 is a precise synthetic teaching contract (180 bytes) that separates vendo
 
 ### Unresolved editorial choices for Geoffrey and Jane
 
-1. **Word count:** Draft is 4,339 words, exceeding 1,800-2,600 target guidance. Should manuscript be condensed, or is the length justified given the seven-layer contract separation and FSTO/1 provenance detail? Specific sections identified for potential condensation above.
+1. **Candidate identity:** `articles/article2.md` is the sole, 2,832-word publication candidate; its temporary Jane source is byte-identical. The obsolete 4,339-word draft is not under editorial consideration.
 
 2. **Transport explanations depth:** UDP/TCP/TLS/NetFlow/cloud delivery descriptions (lines 55-69, 95-123) aim for accessibility without assuming prerequisite knowledge. Is this the right balance, or should the manuscript assume more networking background and abbreviate?
 
@@ -505,7 +512,7 @@ FSTO/1 is a precise synthetic teaching contract (180 bytes) that separates vendo
 
 3. **FSTO/1 anatomy:** Annotated canonical record showing which components are vendor-documented (green) vs teaching simplifications (amber), mapped to provenance table
 
-4. **Attempt vs receipt gap:** Simple diagram showing UDP send success at simulator (bytes_sent=180, no error) and no corresponding receipt at collector port, illustrating the observable gap
+4. **Attempt vs receipt distinction:** Simple diagram showing local UDP send success as attempt evidence, distinct from a receiver receipt. Do not depict destination non-receipt unless a future experiment observes that destination.
 
 5. **Candidate profiles comparison table:** Boundary type, transport, framing, teaching value for all five profiles in a scannable comparison
 
@@ -521,19 +528,21 @@ FSTO/1 is a precise synthetic teaching contract (180 bytes) that separates vendo
 **tds-platform-root:**
 - Branch: article-2
 - HEAD: `401bbbf` (reconciliation commit, pushed)
-- Working tree: modified (draft.md, review.md uncommitted)
+- Working tree includes mutable editorial and review material; publication authority
+  is `articles/article2.md` only
 - Remote: https://github.com/gabbottron/tds-platform-root article-2 branch (401bbbf pushed)
 
-**Files changed (uncommitted):**
-- articles/work/article-02/draft.md (manuscript complete)
-- articles/work/article-02/review.md (this review packet added)
+**Workspace classification:**
+- `WORK.md`: research and evidence record
+- `review.md`: mutable review record
+- `draft.md`, `jane-draft-01.md`, `jane-draft-02.md`: temporary editorial working material
 
 ### Lifecycle advancement
 
 **Current state:** Drafting
 **Proposed advancement:** Editorial Review (when Geoffrey/Jane approve draft and review packet)
 **Requirements to advance (from AGENTS.md):** Initial manuscript complete, material claims traced to evidence, review packet current
-**Status:** All requirements satisfied. Manuscript awaits editorial review.
+**Status:** Candidate established and awaits editorial review; not approved for publication.
 
 **Not advancing to:** Publication Ready (requires Geoffrey/Jane editorial approval and any requested revisions)
 

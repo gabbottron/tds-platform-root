@@ -21,7 +21,7 @@ sources, conversations, and measured work, with uncertainty retained.
 | Installment | Lifecycle state | Central question | Published transcript / checkpoint | Workspace |
 | --- | --- | --- | --- | --- |
 | 1 — Before the First Service | Published | What must be preserved and recorded before the first service can responsibly begin? | [Article 1](article1.md) / `article-01` | No retrospective workspace |
-| 2 — Choose what crosses the first edge (working title) | Editorial Review | What versioned wire profile should cross the first edge, and what justifies choosing it? | None assigned | [WORK.md](work/article-02/WORK.md) |
+| 2 — Choose what crosses the first edge (working title) | Editorial Review | What versioned wire profile should cross the first edge, and what justifies choosing it? | Unpublished candidate: [Article 2](article2.md); no checkpoint | [WORK.md](work/article-02/WORK.md) |
 
 Current installment: **2**. Later installments are not scheduled or committed.
 Lifecycle requirements live in [AGENTS.md](../AGENTS.md); state is recorded only
@@ -61,13 +61,14 @@ attempt/receipt metadata, and both required scenarios (clean_success,
 receiver_unavailable). All 15 tests pass. Evidence artifacts captured. Findings
 reconciled to ARCHITECTURE.md, OPEN-QUESTIONS.md, and RISKS.md.
 
-Article 2 manuscript complete (4,339 words). Draft presents seven-layer contract
-separation, FortiOS/UDP selection rationale, FSTO/1 specification with provenance
-table, experimental results from validated evidence (a62ac98/f828949), and
-preserved limitations. All material claims traced to evidence. Review packet
-current in review.md.
+Article 2's sole publication candidate is [articles/article2.md](article2.md),
+an unpublished, not-yet-approved 2,832-word manuscript. It is byte-identical to
+the temporary editorial source `work/article-02/jane-draft-02.md`. All files
+under `work/article-02/` are research, review, or temporary editorial material;
+none is publication authority. The obsolete 4,339-word `draft.md` is retained
+without being merged into the candidate. The review packet is current in
+`work/article-02/review.md`.
 
-Next action: Geoffrey and Jane editorial review. Five key decisions flagged:
-word count (exceeds target), transport explanations depth, candidate profiles
-scope, field explanations verbosity, "Next" section specificity. Do NOT publish,
-create tags, or advance to Publication Ready until editorial approval.
+Next action: Geoffrey and Jane editorial review of `articles/article2.md`. Do
+NOT publish, create tags, add a publication date or URL, or advance to
+Publication Ready until editorial approval.

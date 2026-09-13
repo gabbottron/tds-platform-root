@@ -1,9 +1,11 @@
 # Article 2 — working record
 
-Mutable editorial material, not platform authority. See the
+Research and evidence working material, not publication authority. See the
 [roadmap](../../ROADMAP.md) for lifecycle state and next action, and
 [AGENTS.md](../../../AGENTS.md) for the workflow. Manuscript and handoff live in
-[draft.md](draft.md) and [review.md](review.md).
+[review.md](review.md). `draft.md`, `jane-draft-01.md`, and `jane-draft-02.md`
+are temporary editorial working material; the sole Article 2 publication
+candidate is [articles/article2.md](../../article2.md).
 
 ## Brief
 
