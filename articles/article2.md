@@ -1,7 +1,7 @@
 ---
 title: "Architecting With Evidence, Part 2: What Crosses the First Edge?"
-record_type: unpublished-publication-candidate
-publication_status: editorial-review-not-approved
+record_type: published-article-transcript
+publication_status: published
 publication_authority: articles/article2.md
 evidence_record: articles/evidence/article-02.md
 ---
@@ -254,7 +254,9 @@ In Part 3, we will turn to the raw collection boundary. Starting with FSTO/1, we
 
 Only then can we decide what durability contract the next boundary must provide. We should not choose a broker or invent a platform envelope merely because those components are conventional.
 
-Reference repositories for this article: tds-platform-root and tds-firewall-traffic-simulator
+Repository checkpoints for this article:
+[tds-platform-root `article-02`](https://github.com/gabbottron/tds-platform-root/tree/article-02)
+and [tds-firewall-traffic-simulator `article-02`](https://github.com/gabbottron/tds-firewall-traffic-simulator/tree/article-02).
 
 Evidence checkpoint: FSTO/1 implementation a62ac98; validated experiment experiment-20260913-145108.json at f828949.
 
@@ -262,4 +264,4 @@ About this series: Architecting With Evidence follows the design of an evolving 
 
 Geoffrey Abbott is a senior platform engineer and founder of Northwatch Systems. He writes about production architecture, agentic development, and building systems whose behavior can be explained.
 
-Publication status: Editorial review; not yet approved for publication.
+Publication status: Published; checkpointed as `article-02`.

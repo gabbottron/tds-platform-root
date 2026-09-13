@@ -21,7 +21,7 @@ sources, conversations, and measured work, with uncertainty retained.
 | Installment | Lifecycle state | Central question | Published transcript / checkpoint | Workspace |
 | --- | --- | --- | --- | --- |
 | 1 — Before the First Service | Published | What must be preserved and recorded before the first service can responsibly begin? | [Article 1](article1.md) / `article-01` | No retrospective workspace |
-| 2 — Choose what crosses the first edge (working title) | Editorial Review | What versioned wire profile should cross the first edge, and what justifies choosing it? | Unpublished candidate: [Article 2](article2.md); no checkpoint | Removed before merge; [durable evidence](evidence/article-02.md) |
+| 2 — What Crosses the First Edge? | Published | What versioned wire profile should cross the first edge, and what justifies choosing it? | [Article 2](article2.md) / `article-02` | Removed before merge; [durable evidence](evidence/article-02.md) |
 
 Current installment: **2**. Later installments are not scheduled or committed.
 Lifecycle requirements live in [AGENTS.md](../AGENTS.md); state is recorded only
@@ -62,12 +62,10 @@ attempt/receipt metadata, and both required scenarios (clean_success,
 receiver_unavailable). All 15 tests pass. Evidence artifacts captured. Findings
 reconciled to ARCHITECTURE.md, OPEN-QUESTIONS.md, and RISKS.md.
 
-Article 2's sole publication candidate is [articles/article2.md](article2.md),
-an unpublished, not-yet-approved 2,832-word manuscript. Its durable provenance
-and experiment limitations are recorded in [articles/evidence/article-02.md](evidence/article-02.md).
+Article 2, [What Crosses the First Edge?](article2.md), is published at the
+immutable `article-02` checkpoint. Its durable provenance and experiment
+limitations are recorded in [articles/evidence/article-02.md](evidence/article-02.md).
 The Article 2 workspace was temporary material and is removed before merge; it
-is not publication authority and is not carried forward to Article 3.
+is not carried forward to Article 3.
 
-Next action: Geoffrey and Jane editorial review of `articles/article2.md`. Do
-NOT publish, create tags, add a publication date or URL, or advance to
-Publication Ready until editorial approval.
+Next action: shape Article 3 only when its question and scope are established.

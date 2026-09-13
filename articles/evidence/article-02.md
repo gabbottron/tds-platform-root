@@ -1,14 +1,14 @@
 # Article 2 — durable evidence record
 
-This is the durable evidence companion to the unpublished Article 2 publication
-candidate, [What Crosses the First Edge?](../article2.md). It replaces the
+This is the durable evidence companion to the published Article 2 installment,
+[What Crosses the First Edge?](../article2.md). It replaces the
 temporary Article 2 workspace before merge. It is not platform architecture;
 accepted platform implications remain in the root architecture, questions, and
 risks.
 
 ## Artifact identities
 
-- **Candidate:** `articles/article2.md`, unpublished and not approved for publication.
+- **Published installment:** `articles/article2.md`, checkpointed as `article-02`.
 - **Implementation:** `tds-firewall-traffic-simulator` commit
   `a62ac9897e0086ff256f996249ed56154717773c` (`a62ac98`).
 - **Validated execution evidence:** `tds-firewall-traffic-simulator` commit

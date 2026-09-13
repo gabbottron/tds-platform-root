@@ -1,4 +1,4 @@
-# Risks — Article 1 checkpoint
+# Risks — current through Article 2
 
 These are plausible harmful outcomes, not completed mitigations. Escalate when
 the stated evidence or event occurs.

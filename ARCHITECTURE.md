@@ -1,4 +1,4 @@
-# Platform architecture — Article 1 checkpoint
+# Platform architecture — current through Article 2
 
 ## Authority and scope
 

@@ -1,4 +1,4 @@
-# Open questions — Article 1 checkpoint
+# Open questions — current through Article 2
 
 Unanswered questions are recorded here rather than resolved by convention.
 Each entry states why it matters, what it could affect, the provisional boundary
